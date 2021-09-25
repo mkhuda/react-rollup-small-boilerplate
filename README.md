@@ -1,7 +1,7 @@
 # react-rollup-small-boilerplate
 Minimum ReactJS boilerplate with Rollup to speed up development of `small` React projects.
 
-> included: react-dom-router
+> included: react-router-dom
 
 ## Clone
 ```bash
