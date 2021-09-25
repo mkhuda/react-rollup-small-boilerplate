@@ -20,7 +20,8 @@ export default {
     sourcemap: true,
     globals: {
       react: 'react',
-      'react-dom': 'react-dom'
+      'react-dom': 'react-dom',
+      'react-router-dom': 'react-router-dom'
     }
   },
   plugins: [
@@ -45,9 +46,9 @@ export default {
       serve({
         open: true,
         verbose: true,
-        contentBase: ["", "public"],
         host: "localhost",
         port: 3000,
+        historyApiFallback: true
       }),
     !isProduction && livereload({ watch: "build" }),
   ],
