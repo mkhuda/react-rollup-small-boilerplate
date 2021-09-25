@@ -12,22 +12,26 @@ import { terser } from "rollup-plugin-terser";
 
 const isProduction = process.env.NODE_ENV !== "development";
 
-console.log(isProduction)
-
 export default {
   input: "src/index.js",
   output: {
     file: "build/main.js",
     format: "iife",
     sourcemap: true,
+    globals: {
+      react: 'react',
+      'react-dom': 'react-dom'
+    }
   },
   plugins: [
     replace({
       preventAssignment: true,
       "process.env.NODE_ENV": JSON.stringify("development"),
     }),
-    isProduction && terser(),
-    resolve(),
+    terser(),
+    resolve({
+      browser: true
+    }),
     image(),
     postcss({
       extensions: [".css"],
